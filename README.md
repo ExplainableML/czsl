@@ -39,6 +39,3 @@ Code to reproduce experiments for Compositional Graph Embedding
 ```
 
 Note: Some of the scripts are adapted from AttributeasOperators repository. GCN and GCNII implementations are imported from their respective repositories.
-
-## License
-czsl is Creative Commons Attribution Non-Commercial Licensed, as found in the LICENSE file.
