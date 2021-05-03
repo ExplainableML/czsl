@@ -61,7 +61,7 @@ def main():
 
     testset = dset.CompositionDataset(
         root=os.path.join(DATA_FOLDER,args.data_dir),
-        phase='val',
+        phase='test',
         split=args.splitname,
         model =args.image_extractor,
         subset=args.subset,
