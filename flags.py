@@ -20,6 +20,7 @@ parser.add_argument('--clean_only', action='store_true', default=False, help='us
 parser.add_argument('--subset', action='store_true', default=False, help='test on a 1000 image subset (debug purpose)')
 parser.add_argument('--open_world', action='store_true', default=False, help='perform open world experiment')
 parser.add_argument('--test_batch_size', type=int, default=32, help="Batch size at test/eval time")
+parser.add_argument('--cpu_eval', action='store_true', help='Perform test on cpu')
 
 # Model parameters
 parser.add_argument('--model', default='graphfull', help='visprodNN|redwine|labelembed+|attributeop|tmn|compcos')

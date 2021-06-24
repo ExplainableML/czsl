@@ -145,9 +145,9 @@ class RedWine(ManifoldModel):
         self.image_embedder = lambda img: img
         self.compare_metric = lambda img_feats, pair_embed: torch.sigmoid((img_feats*pair_embed).sum(1))
         self.train_forward = self.train_forward_bce
-        self.val_forward = self.val_forward_distance
+        self.val_forward = self.val_forward_distance_fast
 
-        in_dim = dset.feat_dim if not args.glove_init else 300
+        in_dim = dset.feat_dim if args.clf_init else args.emb_dim
         self.T = nn.Sequential(
             nn.Linear(2*in_dim, 3*in_dim),
             nn.LeakyReLU(0.1, True),
@@ -159,10 +159,10 @@ class RedWine(ManifoldModel):
         self.obj_embedder = nn.Embedding(len(dset.objs), in_dim)
 
         # initialize the weights of the embedders with the svm weights
-        if args.glove_init:
-            pretrained_weight = load_word_embeddings(DATA_FOLDER+'/glove/glove.6B.300d.txt', dset.attrs)
+        if args.emb_init:
+            pretrained_weight = load_word_embeddings(args.emb_init, dset.attrs)
             self.attr_embedder.weight.data.copy_(pretrained_weight)
-            pretrained_weight = load_word_embeddings(DATA_FOLDER+'/glove/glove.6B.300d.txt', dset.objs)
+            pretrained_weight = load_word_embeddings(args.emb_init, dset.objs)
             self.obj_embedder.weight.data.copy_(pretrained_weight)
 
         elif args.clf_init:

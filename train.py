@@ -175,13 +175,22 @@ def test(epoch, image_extractor, model, testloader, evaluator, writer, args, log
         all_obj_gt.append(obj_truth)
         all_pair_gt.append(pair_truth)
 
-    all_attr_gt, all_obj_gt, all_pair_gt = torch.cat(all_attr_gt), torch.cat(all_obj_gt), torch.cat(all_pair_gt)
+    if args.cpu_eval:
+        all_attr_gt, all_obj_gt, all_pair_gt = torch.cat(all_attr_gt), torch.cat(all_obj_gt), torch.cat(all_pair_gt)
+    else:
+        all_attr_gt, all_obj_gt, all_pair_gt = torch.cat(all_attr_gt).to('cpu'), torch.cat(all_obj_gt).to(
+            'cpu'), torch.cat(all_pair_gt).to('cpu')
 
     all_pred_dict = {}
     # Gather values as dict of (attr, obj) as key and list of predictions as values
-    for k in all_pred[0].keys():
-        all_pred_dict[k] = torch.cat(
-            [all_pred[i][k] for i in range(len(all_pred))])
+    if args.cpu_eval:
+        for k in all_pred[0].keys():
+            all_pred_dict[k] = torch.cat(
+                [all_pred[i][k].to('cpu') for i in range(len(all_pred))])
+    else:
+        for k in all_pred[0].keys():
+            all_pred_dict[k] = torch.cat(
+                [all_pred[i][k] for i in range(len(all_pred))])
 
     # Calculate best unseen accuracy
     results = evaluator.score_model(all_pred_dict, all_obj_gt, bias=args.bias, topk=args.topk)
