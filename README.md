@@ -1,6 +1,8 @@
 
 # Compositional Zero-Shot Learning
-This is the official PyTorch code of the CVPR 2021 works [Learning Graph Embeddings for Compositional Zero-shot Learning](https://arxiv.org/pdf/2102.01987.pdf) and [Open World Compositional Zero-Shot Learning](https://arxiv.org/pdf/2101.12609.pdf).  The code provides the implementation of the methods CGE, CompCos together with other baselines (e.g. SymNet, AoP, TMN, LabelEmbed+,RedWine). It also provides train and test for the Open World CZSL setting and the new GQA benchmark.
+This is the official PyTorch code of the CVPR 2021 works [Learning Graph Embeddings for Compositional Zero-shot Learning](https://arxiv.org/pdf/2102.01987.pdf) and [Open World Compositional Zero-Shot Learning](https://arxiv.org/pdf/2101.12609.pdf).  The code provides the implementation of the methods CGE, CompCos together with other baselines (e.g. SymNet, AoP, TMN, LabelEmbed+,RedWine). It also provides train and test for the Open World CZSL setting and the new C-GQA benchmark.  
+
+**Important note:** the C-GQA dataset has been updated (see [this issue](https://github.com/ExplainableML/czsl/issues/3)) and the code will automatically download the new version. The results of all models for the updated benchmark can be found in this [arxiv preprint](https://arxiv.org/pdf/2105.01017.pdf).
 
 <p align="center">
   <img src="utils/img.png" />
@@ -21,6 +23,7 @@ This is the official PyTorch code of the CVPR 2021 works [Learning Graph Embeddi
     bash ./utils/download_data.sh DATA_ROOT
     mkdir logs
 ```
+
 
 ## Training
 **Closed World.** To train a model, the command is simply:
