@@ -42,7 +42,7 @@ parser.add_argument('--train_only', action='store_true', default=False, help='Op
 
 #CGE
 parser.add_argument('--graph', action='store_true', default=False, help='graph l2 distance triplet') # Do we need this
-parser.add_argument('--graph_init', default='graph', help='filename, file from which initializing the nodes and adjacency matrix of the graph')
+parser.add_argument('--graph_init', default=None, help='filename, file from which initializing the nodes and adjacency matrix of the graph')
 parser.add_argument('--gcn_type', default='gcn', help='GCN Version')
 
 # Forward
