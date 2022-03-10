@@ -15,7 +15,6 @@ model_params:
   graph_init: utils/mitstates-graph.t7
   image_extractor: resnet18
   train_only: true
-  static_inp: false
 training:
   batch_size: 128
   eval_val_every: 2

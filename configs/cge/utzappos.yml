@@ -15,15 +15,8 @@ model_params:
   emb_dim: 300
   emb_init: null
   graph_init: utils/utzappos-graph.t7
-  eval_type: otherdist
   image_extractor: resnet18
   train_only: true
-  static_inp: false
-  composition: mlp_add
-gcnii:
-  hidden_dim: 1024
-  gcn_type: gcn
-  gcn_nlayers: 10
 training:
   batch_size: 128
   eval_val_every: 2
