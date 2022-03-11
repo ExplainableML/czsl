@@ -116,7 +116,7 @@ class GraphFull(nn.Module):
                 self.update_dict(weight_dict,i,i,1.)
 
             for idx, (attr, obj) in enumerate(pairs):
-                attr_idx, obj_idx = self.attr_to_idx[attr], self.obj_to_idx[obj]
+                attr_idx, obj_idx = self.attr_to_idx[attr], self.obj_to_idx[obj] + self.num_attrs
 
                 self.update_dict(weight_dict, attr_idx, obj_idx, 1.)
                 self.update_dict(weight_dict, obj_idx, attr_idx, 1.)
