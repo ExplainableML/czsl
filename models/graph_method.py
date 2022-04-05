@@ -85,7 +85,7 @@ class GraphFull(nn.Module):
             composition_embeds = []
             for (attr, obj) in pairs:
                 attr_embed = embeddings[self.attr_to_idx[attr]]
-                obj_embed = embeddings[self.obj_to_idx[obj]]
+                obj_embed = embeddings[self.obj_to_idx[obj]+self.num_attrs]
                 composed_embed = (attr_embed + obj_embed) / 2
                 composition_embeds.append(composed_embed)
             composition_embeds = torch.stack(composition_embeds)
