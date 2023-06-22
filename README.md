@@ -2,12 +2,17 @@
 # Compositional Zero-Shot Learning
 This is the official PyTorch code of the CVPR 2021 works [Learning Graph Embeddings for Compositional Zero-shot Learning](https://arxiv.org/pdf/2102.01987.pdf) and [Open World Compositional Zero-Shot Learning](https://arxiv.org/pdf/2101.12609.pdf).  The code provides the implementation of the methods CGE, CompCos together with other baselines (e.g. SymNet, AoP, TMN, LabelEmbed+,RedWine). It also provides train and test for the Open World CZSL setting and the new C-GQA benchmark.  
 
-**Important note:** the C-GQA dataset has been updated (see [this issue](https://github.com/ExplainableML/czsl/issues/3)) and the code will automatically download the new version. The results of all models for the updated benchmark can be found in this [arxiv preprint](https://arxiv.org/pdf/2105.01017.pdf).
+**Important note:** the C-GQA dataset has been updated (see [this issue](https://github.com/ExplainableML/czsl/issues/3)) and the code will automatically download the new version. The results of all models for the updated benchmark can be found in the [Co-CGE](https://arxiv.org/abs/2105.01017) and [KG-SP](https://openaccess.thecvf.com/content/CVPR2022/html/Karthik_KG-SP_Knowledge_Guided_Simple_Primitives_for_Open_World_Compositional_Zero-Shot_CVPR_2022_paper.html) papers.
 
 <p align="center">
   <img src="utils/img.png" />
 </p>
 
+## Check also:
+- [Co-CGE](https://ieeexplore.ieee.org/document/9745371/) and its [repo](https://github.com/ExplainableML/co-cge) if you are interested in a stronger OW-CZSL model and a faster OW evaluation code.
+- [KG-SP](https://openaccess.thecvf.com/content/CVPR2022/html/Karthik_KG-SP_Knowledge_Guided_Simple_Primitives_for_Open_World_Compositional_Zero-Shot_CVPR_2022_paper.html) and its [repo](https://github.com/ExplainableML/KG-SP) if you are interested in the partial CZSL setting and a simple but effective OW model.
+
+  
 ## Setup 
 
 1. Clone the repo 
